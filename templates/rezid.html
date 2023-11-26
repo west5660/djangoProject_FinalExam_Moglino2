@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="{% static 'css/service_by_type.css' %}">
+     <link rel="stylesheet" href="{% static 'css/rezid.css' %}">
+{#    <script src="{% static 'javascript/corus.js' %}" defer></script>#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-pzjw8c+0v9zN2TtI5eIHVd6Iv//Nko9Cq4FQsx4LZ6CpT9AD6/W9pVL9H3+VME1I" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Резиденты</title>
+</head>
+<body>
+{#меню#}
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <img src="{% static 'img/logo.png' %}" alt="Лого Компании" width="200" height="60">
+        <li><a href="{% url 'uslug' %}">Услуги</a></li>
+
+    </ul>
+</nav>
+{#карточки#}
+    <div class="container text-center" id="cont">
+  <h3 class="text-black" id="hr">Компании запустившие производство</h3>
+
+
+<div class="btn-group">
+<div class="card border-primary mb-3 text-white bg-secondary mb-3 " style="width:35%" >
+  <img class="card-img-top" src="{% static 'img/Nor_Maali.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ООО «Нор-Маали»</h4>
+    <p class="card-text">Nor-Maali Oy - это быстроразвивающееся финское предприятие, продукцией которого являются краски промышленного назначения, а также напольные покрытия. Предприятие было основано в 1987 году и располагается в городе Лахти.
+Nor-Maali Oy хорошо известно своими инновационными исследованиями и развитием целых направлений промышленных красок для металлов, а также покрытий для бетона.</p>
+    </div>
+</div>
+
+<div class="card border-primary mb-3 text-white bg-secondary mb-3" style="width:35%">
+  <img class="card-img-top" src="{% static 'img/elma2.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ООО «Елме Мессер Рус»</h4>
+    <p class="card-text">Компания ELME MESSER GAAS является ведущей газовой компанией в Прибалтийском регионе. Основана в 1999 году как совместное предприятие компаний A/S BLRT (Эстония) и MESSER GROUP (Германия).Наряду с полным набором газов для промышленных нужд компания предлагает широкий спектр газов и продуктов для медицины, защиты окружающей среды. </p>
+    </div>
+</div>
+
+<div class="card border-primary mb-3 text-white bg-secondary mb-3" style="width:35%">
+  <img class="card-img-top" src="{% static 'img/sintez1.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ООО «Синтез Технолоджи»</h4>
+    <p class="card-text">«Синтез Технолоджи» - одна из ведущих компаний по производству лабораторных алмазов и бриллиантов, обладающая уникальными технологиями и опытом в области разработки алмазных суперматериалов по технологии НРНТ (High Temperature High Pressures).
+Безупречное качество алмазов и бриллиантов основано на многолетних разработках технологии HPHT.
+</p>
+    </div>
+</div>
+</div>
+
+
+
+<div class="btn-group">
+<div class="card border-danger mb-3 text-white bg-secondary mb-3" style="width:35%">
+  <img class="card-img-top" src="{% static 'img/titan.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ООО «Титан-полимер»</h4>
+    <p class="card-text">Высоко-интегрированный промышленный комплекс по производству ПЭТФ гранул и БОПЭТ пленок, позволяющий производить широкий диапазон высокомаржинальной продукции импортозамещения. На предприятии установлено высокотехнологичное оборудование от мировых лидеров отрасли.</p>
+    </div>
+</div>
+
+<div class="card border-danger mb-3 text-white bg-secondary mb-3" style="width:35%">
+  <img class="card-img-top" src="{% static 'img/sib1.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ПАО «Айс Стим Рус»</h4>
+    <p class="card-text">С 2015 года Компания выпускала сублимированные ягоды и грибы для сегмента B2B, а также B2C - на основе контрактного производства. В 2016 году начала строительство собственного производственного комплекса в ОЭЗ Моглино. Производственный комплекс является крупнейшим на территории РФ. </p>
+    </div>
+</div>
+
+<div class="card border-danger mb-3 text-white bg-secondary mb-3" style="width:35%">
+  <img class="card-img-top" src="{% static 'img/scrin.jpg' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">ООО "СКРИНИНГ-М"</h4>
+    <p class="card-text">Производства медицинских диагностических экспресс-тестов для профессионального применения и самотестирования. Продукция проекта – наборы «Мультитест». Продукция применяется в качестве вспомогательного средства в клинической лабораторной диагностике.</p>
+    </div>
+</div>
+</div>
+  </div>
+<footer>
+        <div>
+
+            <h4>Контакты</h4>
+            <!-- Здесь добавьте контактную информацию -->
+            <div class="adres"><p> Псковская обл., Псковский р-н, д. Моглино, зона ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ППТ «Моглино», д. 18</p></div>
+                <div class="adres1"><p>Приемная:
+                +7 8112 29-33-33;
+                +7 8112 29-33-34;
+                info@moglinosez.ru </p></div>
+                <div class="adres2"> <p>Служба
+                сопровождения инвестиционных проектов:
+                +7 8112 29-33-44;
+                +7 981 350-77-53;</p></div>
+        </div>
+    </footer>
+</body>
+</html>

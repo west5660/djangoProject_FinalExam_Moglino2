@@ -1,0 +1,153 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fon.png');
+    background-size: cover; /* чтобы изображение занимало всю область фона */
+    background-repeat: repeat; /* чтобы изображение не повторялось */
+}
+
+nav {
+    background-color: #b3d4fc;
+    color: white;
+    padding: 30px;
+}
+nav a{
+    text-decoration: none;
+    color: #100f0f;
+    font-size: 18px;
+    padding: 15px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+nav a:hover {
+    background-color: #0e86e7;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+h2 {
+    color: #ffffff;
+
+}
+.order122{
+    overflow: auto;
+    margin-bottom: 200px;
+}
+.order {
+    border: 3px solid #b3d4fc;
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    font-size: 18px;
+    overflow: auto;
+}
+
+button {
+    text-align: center;
+    align-items: center;
+    background-color: #dedede;
+    color: #100f0f;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+button:hover {
+    background-color: #49028d;
+    color: white;
+}
+#orderButton{
+    color: #100f0f;
+}
+#orderButton:hover {
+    color: white;
+}
+h2{
+    text-align: center;
+
+}
+
+
+footer {
+    background-color: #b3d4fc;
+    padding: 0px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Контейнер для всей информации в подвале */
+footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.adres p, .adres1 p, .adres2 p {
+    font-size: 18px;
+    color: #555;
+    line-height: 0;
+    font-weight: bold;
+}
+h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.zakaz {
+    /*background-color: #dedede;*/
+    color: #100f0f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.zakaz1{
+    margin-bottom: 250px;
+    overflow: auto;
+}
+.zakaz button{
+    align-items: center;
+    color: #100f0f;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    font-weight: bold;
+    text-align: center;
+
+
+}
+
+@media screen and (max-width: 1350px) {
+    .order122 {
+
+        margin-bottom: 250px; /* Дополнительно уменьшил отступы для навигации на маленьких экранах */
+    }}

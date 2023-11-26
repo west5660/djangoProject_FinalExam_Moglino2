@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Добавить в корзину{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/add_to_cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/service_by_type.css' %}">
+</head>
+<body>
+
+<!-- Меню -->
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <img src="{% static 'img/logo.png' %}" alt="Лого Компании" width="200" height="60">
+        <li><a href="{% url 'uslug' %}">Услуги</a></li>
+
+    </ul>
+</nav>
+
+<!-- Содержимое страницы -->
+<div class="add-to-cart">
+    <p>Добавлена в корзину: {{ service.title }}</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить в корзину</button>
+    </form>
+</div>
+
+<!-- Подвал -->
+    <footer>
+        <div>
+            <h2>Контакты</h2>
+            <!-- Здесь добавьте контактную информацию -->
+            <div class="adres"><p> Псковская обл., Псковский р-н, д. Моглино, зона ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ППТ «Моглино», д. 18</p></div>
+                <div class="adres1"><p>Приемная:
+                +7 8112 29-33-33;
+                +7 8112 29-33-34;
+                info@moglinosez.ru </p></div>
+                <div class="adres2"> <p>Служба
+                сопровождения инвестиционных проектов:
+                +7 8112 29-33-44;
+                +7 981 350-77-53;</p></div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{% static 'javascript/tg1.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/service_by_type.css' %}">
+    <title>Корзина</title>
+</head>
+<body>
+<div>
+<div id="user-info" data-username="{{ user.username }}"></div>
+<!-- Меню -->
+<nav>
+    <ul>
+        <li><p><a href="{% url 'home' %}">Главная</a></p></li>
+        <img src="{% static 'img/logo.png' %}" alt="Лого Компании" width="200" height="60">
+        <li><a href="{% url 'uslug' %}">Услуги</a></li>
+
+    </ul>
+</nav>
+
+<!-- Содержимое корзины -->
+<h2>Корзина пользователя - {{ user.username }} </h2>
+<script>
+        // Передаем CSRF токен в JavaScript
+        const csrf_token = "{{ csrf_token }}";
+    </script>
+<div class="zakaz">
+    <div>Общая стоимость: {{ total_cost|default:"0.00" }} руб.</div>
+    <button type="submit" id="orderButton">Заказать</button>
+</div>
+<div class="order122">
+{% for order in user_orders %}
+    <div class="order" data-service-title="{{ order.service.title }}" data-quantity="{{ order.quantity }}" data-total-cost="{{ order.total_cost }}" data-processed="false">
+        <p>{{ order.service.title }} ({{ order.quantity }} шт.) - {{ order.total_cost }} руб.</p>
+        <form method="post" action="{% url 'remove_from_cart' order.id %}">
+            {% csrf_token %}
+            <button type="submit">Удалить</button>
+        </form>
+    </div>
+{% endfor %}
+</div>
+
+
+<!-- Кнопка "Заказать" -->
+
+</div>
+
+<!-- Подвал -->
+    <footer>
+        <div>
+            <h2>Контакты</h2>
+            <!-- Здесь добавьте контактную информацию -->
+            <div class="adres"><p> Псковская обл., Псковский р-н, д. Моглино, зона ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ППТ «Моглино», д. 18</p></div>
+                <div class="adres1"><p>Приемная:
+                +7 8112 29-33-33;
+                +7 8112 29-33-34;
+                info@moglinosez.ru </p></div>
+                <div class="adres2"> <p>Служба
+                сопровождения инвестиционных проектов:
+                +7 8112 29-33-44;
+                +7 981 350-77-53;</p></div>
+        </div>
+    </footer>
+
+</body>
+</html>

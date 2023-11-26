@@ -1,0 +1,502 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fon.png');
+    background-size: cover; /* чтобы изображение занимало всю область фона */
+    background-repeat: no-repeat; /* чтобы изображение не повторялось */
+}
+.otstyp{
+    /*margin-bottom: 30px;*/
+}
+nav {
+    background-color: #dedede;
+    color: #100f0f;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #ec6654;
+    box-shadow: 5px 5px 20px 5px #575757;
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-left: 30px;
+
+}
+
+nav ul li {
+    margin: 0 30px;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: #100f0f;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+
+.logo img {
+    width: 200px;
+    height: 60px;
+    margin-right: 350px;
+    transition: all 0.3s ease; /* Добавлено плавное переход при изменении размера */
+
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+
+}
+.but {
+    display: flex;
+    align-items: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: #100f0f;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+h1, h2{
+    text-align: center;
+}
+h4{
+    color: #100f0f;
+}
+
+form {
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #dedede;
+
+    padding: 15px;
+    text-align: center;
+}
+button[type="submit"] {
+    background-color: #0e86e7;
+    color: #100f0f;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+    width: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #49028d;
+    color: white;
+
+}
+.tf{
+    display: flex;
+    margin: 20px;
+}
+.text{
+    margin-right: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 23px;
+    width: 50%;
+    overflow-y: auto;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.83);
+    padding: 20px;
+    text-align: justify;
+    border: 4px solid #b3d4fc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px #575757;
+    font-weight: bold;
+    color: #100f0f;
+
+}
+.video{
+    margin-top: 20px;
+    /*border: 4px solid #b3d4fc;*/
+    margin-left: auto;
+    margin-right: 20px;
+    box-shadow: 5px 5px 20px 5px #575757;
+        border-radius: 15px;
+    width: 860px;
+
+}
+/* CSS для подвала */
+footer {
+    background-color: #dedede;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    border-top: 4px solid #ec6654;
+    box-shadow: 5px 5px 20px 5px #575757;
+    transition: all 0.3s; /* добавлен переход для плавного изменения размеров */
+}
+
+/* Контейнер для всей информации в подвале */
+footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для контактов */
+h4 {
+    font-size: 24px;
+    color: #333;
+    transition: font-size 0.3s; /* добавлен переход для плавного изменения размеров */
+}
+
+.adres p, .adres1 p, .adres2 p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: font-size 0.3s; /* добавлен переход для плавного изменения размеров */
+}
+
+/* Медиа-запрос для мобильных устройств с шириной до 600px */
+@media screen and (max-width: 600px) {
+    .adres p, .adres1 p, .adres2 p {
+        font-size: 14px;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/*карусель*/
+.carousel-custom {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom:150px;
+    margin-top: -20px;
+    box-shadow: 5px 5px 20px 5px #575757;
+    border-radius: 15px;
+}
+.carousel-inner {
+        border-radius: 15px;
+}
+/*прикольная штука*/
+
+#shape .lol { height:200px; width:200px;}
+
+.paused{
+    -webkit-animation-play-state:paused;
+    -moz-animation-play-state:paused;
+    -o-animation-play-state:paused;
+    animation-play-state:paused;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform:rotateY(0);
+
+
+  }
+  to {-webkit-transform:rotateY(-360deg);
+
+  }
+}
+
+@-moz-keyframes spin {
+    from {
+
+    -moz-transform:rotateY(0);
+
+  }
+  to {
+      -moz-transform:rotateY(-360deg);
+  }
+
+}
+#wrapper{
+    width:auto;
+    -webkit-perspective: 800px;
+    margin:100px auto 100px auto;
+
+    -webkit-perspective-origin: 50% 90px;
+    -webkit-transition:-webkit-perspective,1s;
+    -moz-perspective-origin: 50% 90px;
+    -moz-transition:-webkit-perspective,1s;
+
+}
+
+#shape {
+  margin:0 auto;
+  height:200px;
+  width:200px;
+  -webkit-transform-style:preserve-3d;
+  -webkit-animation: spin 8s infinite linear;
+  -moz-transform-style:preserve-3d;
+  -moz-animation: spin 8s infinite linear;
+
+}
+
+.plane {
+      position:absolute;
+       height:200px;
+      width:200px;
+      background-color:rgba(0,0,0, 0.6);
+      text-align:center;
+      font-size:10em;
+      color:white;
+
+    }
+
+#shape > .p1 {
+  -webkit-transform:translateZ(250px);
+  -moz-transform:translateZ(250px);
+  color:#ec6654;
+  text-shadow: 1px 1px 1px black;
+}
+#shape > .p2 {
+  -webkit-transform:rotateY(45deg) translateZ(250px);
+   -moz-transform:rotateY(45deg) translateZ(250px);
+}
+#shape > .p3 {
+  -webkit-transform:
+    rotateY(90deg) translateZ(250px);
+   -moz-transform:
+    rotateY(90deg) translateZ(250px);
+}
+#shape > .p4 {
+  -webkit-transform: rotateY(135deg) translateZ(250px);
+  -moz-transform: rotateY(135deg) translateZ(250px);
+}
+#shape > .p5 {
+  -webkit-transform:rotateY(180deg) translateZ(250px);
+  -moz-transform:rotateY(180deg) translateZ(250px);
+  color: #00b5e5;
+  text-shadow: 1px 1px 1px black;
+}
+#shape > .p6 {
+  -webkit-transform:rotateY(225deg)
+    translateZ(250px);
+  -moz-transform:rotateY(225deg)
+    translateZ(250px);
+}
+#shape > .p7 {
+  -webkit-transform:rotateY(270deg)
+    translateZ(250px);
+   -moz-transform:rotateY(270deg)
+    translateZ(250px);
+}
+#shape > .p8 {
+  -webkit-transform:rotateY(315deg)
+    translateZ(250px);
+   -moz-transform:rotateY(315deg)
+    translateZ(250px);
+}
+#shape > .p9{
+
+}
+.logo1{
+    margin-bottom: 100px;
+}
+.logo2{
+    margin-bottom: 100px;
+}
+#wrapper:hover {
+  -webkit-perspective-origin: 50% -250px;
+  -moz-perspective-origin: 50% -250px;
+}
+
+/* стили для мобильных устройств */
+@media only screen and (max-width: 1450px) {
+    nav {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .logo img {
+        margin-right: 0;
+    }
+
+    .login {
+        margin-right: 10px;
+    }
+
+    .text {
+        margin: 20px 0;
+        width: auto;
+    }
+
+    .video {
+        margin: 20px 0;
+    }
+    .otstyp{
+    margin-bottom: 60px;
+}
+    button{
+        font-size: 16px;
+        padding: 10px;
+    }
+    .but{
+        font-size: 16px;
+    }
+}
+/* Стили для значка мобильного меню */
+.mobile-menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* Отобразить меню при уменьшении экрана */
+@media only screen and (max-width: 1450px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    ul.show {
+        display: flex;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+}
+
+/* Скрыть меню по умолчанию для мобильных устройств */
+.desktop-menu {
+    display: flex;
+            flex-direction: row;
+
+}
+
+ @media only screen and (max-width: 1450px) {
+            .tf {
+                flex-direction: column;
+            }
+            .text, .video {
+                width: 100%;
+                margin: 0;
+            }
+
+        }
+/*для блока с текстом*/
+ @media only screen and (max-width: 1450px) {
+        .tf {
+            flex-direction: column;
+            align-items: center;
+        }
+        .text {
+            font-size: 18px;
+            width: 100%;
+            margin: 20px 0;
+            overflow-y: auto; /* свойство для прокрутки */
+            max-height: 300px;
+        }
+        .video {
+            width: 100%;
+            margin: 20px 0;
+        }
+    }
+/*для лого адаптация*/
+@media only screen and (max-width: 1000px) {
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+    }
+
+/*логин и регистрация адаптация*/
+@media screen and (max-width: 600px) {
+    .login {
+        margin-top: 10px;
+    }
+
+    .login a {
+        font-size: 14px;
+    }
+
+    .login form {
+        font-size: 14px;
+
+    }
+    .but{
+        font-size: 14px;
+        height: auto;
+    }
+}
+/*Футер*/
+@media only screen and (max-width: 768px) {
+    h4 {
+        font-size: 20px;
+    }
+
+    .adres p, .adres1 p, .adres2 p {
+        font-size: 16px;
+    }
+}
+/*меню выпадает*/
+
+@media only screen and (max-width: 1450px) {
+    .desktop-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #dedede;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .desktop-menu.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .desktop-menu a {
+        display: block;
+        text-align: left;
+        padding: 10px;
+        color: #100f0f;
+        text-decoration: none;
+    }
+}
+
+
+

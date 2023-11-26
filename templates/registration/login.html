@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/css_index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <title>Login</title>
+</head>
+<body>
+ <div class="logo">
+        <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="Лого Компании" width="200" height="60"></a>
+    </div>
+    <h2>Login</h2>
+
+    {% block content %}
+  {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <!-- Добавьте дополнительный контент для авторизованных пользователей по вашему усмотрению -->
+  {% else %}
+    <!-- Ваша текущая форма входа -->
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <!-- Ваши поля формы для ввода имени пользователя и пароля -->
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  {% endif %}
+{% endblock %}
+</body>
+</html>

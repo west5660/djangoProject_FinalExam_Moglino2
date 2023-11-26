@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Услуги{% endblock %}</title>
+   <link rel="stylesheet" href="{% static 'css/service_by_type.css' %}">
+{#    <link rel="stylesheet" href="{% static 'css/css_uslug.css' %}">#}
+</head>
+<body>
+
+<!-- Меню -->
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <img src="{% static 'img/logo.png' %}" class="logo" alt="Лого Компании" width="200" height="60">
+        <li><a href="{% url 'uslug' %}">Услуги</a></li>
+
+    </ul>
+</nav>
+
+<!-- Содержимое страницы -->
+<div class="sservice">
+<div class="services">
+    <h2>Услуги:</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Единица измерения</th>
+                <th>Цена</th>
+                <th>Примечание</th>
+                <!-- можно добавить другие поля таблицы -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>{{ service.title }}</td>
+                    <td>{{ service.unit_of_measurement }}</td>
+                    <td>{{ service.cost }}</td>
+                    <td>{{ service.note }}</td>
+                    <td><a href="{% url 'add_to_cart' service.id %}">Добавить в корзину</a></td>
+                    <!-- можно добавить другие поля таблицы из бд -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="ssservices">
+<a href="{% url 'view_cart' %}">Посмотреть корзину</a>
+</div>
+</div>
+<!-- Подвал -->
+<!-- Подвал -->
+    <footer>
+        <div>
+            <h2>Контакты</h2>
+            <!-- Здесь добавьте контактную информацию -->
+            <div class="adres"><p> Псковская обл., Псковский р-н, д. Моглино, зона ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА ППТ «Моглино», д. 18</p></div>
+                <div class="adres1"><p>Приемная:
+                +7 8112 29-33-33;
+                +7 8112 29-33-34;
+                info@moglinosez.ru </p></div>
+                <div class="adres2"> <p>Служба
+                сопровождения инвестиционных проектов:
+                +7 8112 29-33-44;
+                +7 981 350-77-53;</p></div>
+        </div>
+    </footer>
+
+</body>
+</html>

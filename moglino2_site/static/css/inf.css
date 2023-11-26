@@ -1,0 +1,75 @@
+body {
+    background-image: url('../img/inf.JPG');
+}
+
+.inf1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.inf11, .inf12, .inf13, .inf14, .inf15, .inf16 {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border: 2px solid #ec6654;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px #575757;
+    width: 700px;
+}
+
+p {
+    font-size: 25px;
+}
+
+.inf11 {
+    order: 1;
+    width: 1000px;
+    font-size: 35px;
+    padding: 20px;
+    color: #49028d;
+    font-weight: bold;
+
+}
+
+
+
+.inf12 {
+    order: 2;
+}
+
+.inf13 {
+    order: 3;
+}
+
+.inf14 {
+    order: 4;
+}
+
+.inf15 {
+    order: 5;
+}
+
+.inf16 {
+    order: 6;
+}
+
+/* Медиа-запросы для адаптации к различным размерам экранов */
+@media screen and (max-width: 768px) {
+    .inf11, .inf12, .inf13, .inf14, .inf15, .inf16 {
+        width: 100%;
+        font-size: 16px; /* Уменьшил размер шрифта для блоков на мобильных устройствах */
+    }
+
+    .inf1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}
+
