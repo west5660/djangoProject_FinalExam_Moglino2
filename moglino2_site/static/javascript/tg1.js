@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function sendTelegramMessage() {
-        // Ваш текущий код отправки сообщения в Telegram
+
 
         // После успешной отправки в Telegram, вызываем функцию для очистки корзины
         clearCart();
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Обновляем страницу после успешной отчистки корзины
             location.reload();
 
-            // Дополнительные действия при успешной отчистке корзины
+            // Дополнительные действия при отчистке корзины
         } else {
             console.error('Error clearing cart:', data.message);
             alert('Произошла ошибка при обработке заказа.');
