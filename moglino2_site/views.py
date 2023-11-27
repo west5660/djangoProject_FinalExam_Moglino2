@@ -45,7 +45,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')  # Замените 'home' на имя вашего URL-маршрута для главной страницы
+            return redirect('home')
     else:
         form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -130,7 +130,7 @@ def view_cart(request):
     return render(request, 'cart.html', {'user_orders': orders, 'total_cost': total_cost})
 
 def total(request):
-    # Ваши текущие операции
+    # текущие операции
     orders = Order.objects.filter(user=request.user)
 
     total_cost = sum(order.total_cost for order in orders)
@@ -198,7 +198,7 @@ def process_order(request):
 
     if request.method == 'POST':
         try:
-            # Логика обработки заказа...
+            # Логика обработки заказа
             user_orders = Order.objects.filter(user=request.user, is_processed=False)
 
             if user_orders.exists():
