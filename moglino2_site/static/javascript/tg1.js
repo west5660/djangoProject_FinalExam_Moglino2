@@ -151,15 +151,15 @@
 //             });
 //         });
 //     });
-document.addEventListener('DOMContentLoaded', function () {
-    const orderButton = document.getElementById('orderButton');
+document.addEventListener('DOMContentLoaded', function () {     //ожидаем загрузки всех элементов
+    const orderButton = document.getElementById('orderButton');     //ссылка на кнопку
 
-    orderButton.addEventListener('click', function () {
+    orderButton.addEventListener('click', function () {          //обработчик событий клика
         // Собираем информацию о заказах
-        const orders = document.querySelectorAll('.order');
-        let messageText = "Новый заказ:\n";
+        const orders = document.querySelectorAll('.order');          //получаем элементы с классом order из моделей
+        let messageText = "Новый заказ:\n";                                  // объявляем переменную которая будет содержать заказ
 
-        orders.forEach(order => {
+        orders.forEach(order => {                                   //собираем информацию с элементов с классом order
             const serviceTitle = order.getAttribute('data-service-title');
             const quantity = order.getAttribute('data-quantity');
             const totalCost = order.getAttribute('data-total-cost');
@@ -172,17 +172,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function sendOrderToDjango(messageText) {
-        fetch('/process_order/', {
-            method: 'POST',
+        fetch('/process_order/', {                  //отправляем асинхронный запрос HTTP на указанный url
+            method: 'POST',                                  //метод запроса
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json',          //установил заголовки запроса и тип контента
                 'X-CSRFToken': csrf_token,
             },
             body: JSON.stringify({ message_text: messageText }), // Отправляем сообщение как JSON
         })
-        .then(response => response.json())
+        .then(response => response.json())     // Обработка ответа от сервера, который представляет собой JSON.
         .then(data => {
-            console.log('Order processed:', data);
+            console.log('Order processed:', data);  //Обработка данных из JSON-ответа
 
             if (data.status === 'success') {
                 // После успешной обработки заказа, отправляем заказ в Telegram
@@ -206,16 +206,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function clearCart() {
-    fetch('/clear_cart/', {
+    fetch('/clear_cart/', {              //отправляем POST-запрос по адресу
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRFToken': csrf_token,
+            'X-CSRFToken': csrf_token,                //передаем заголовки, включая тип контента и CSRF-токен для защиты от подделки межсайтовых запросов
         },
     })
-    .then(response => response.json())
+    .then(response => response.json())       //Обработка ответа сервера. ожидаем, что сервер вернет JSON и парсим его.
     .then(data => {
-        if (data.status === 'success') {
+        if (data.status === 'success') {            //Обработка данных, полученных от сервера,код проверяет поле status
             console.log('Cart cleared:', data);
             alert('Ваш заказ обработан и отправлен в УК ОЭЗ Моглино');
 

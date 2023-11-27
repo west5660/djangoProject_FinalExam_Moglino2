@@ -196,31 +196,32 @@ def send_telegram_message(chat_id, message_text, total_cost):
 def process_order(request):
     chat_id = "825113753"
 
-    if request.method == 'POST':
+    if request.method == 'POST':                           #Проверяется, был ли запрос методом POST.  используется
+                                                           # для обработки форм и других действий, которые изменяют состояние сервера.
         try:
             # Логика обработки заказа
-            user_orders = Order.objects.filter(user=request.user, is_processed=False)
+            user_orders = Order.objects.filter(user=request.user, is_processed=False)      #получаем заказы которые не обработаны
 
-            if user_orders.exists():
+            if user_orders.exists():                                                        #Проверяем есть ли не обработанные заказы
                 # Выводим информацию о найденных заказах перед их обработкой
-                for order in user_orders:
+                for order in user_orders:                                                   # выводим инфу о необработанных заказах
                     print(f"Found unprocessed order: {order}")
 
                 # Собираем информацию о заказах для отправки в Telegram
-                message_text = f"Новый заказ от пользователя - {request.user.username}:\n"
+                message_text = f"Новый заказ от пользователя - {request.user.username}:\n"     #переменная для хранения текста заказа
                 total_cost = 0
 
                 for order in user_orders:
                     message_text += f"{order.service.title} ({order.quantity} шт.) - {order.total_cost} руб.\n"
-                    total_cost += order.total_cost
+                    total_cost += order.total_cost                                              #создаем текст для отправки
 
                 # Отправка уведомления в Telegram
-                send_telegram_message(chat_id, message_text, total_cost)
+                send_telegram_message(chat_id, message_text, total_cost)                        #вызываем функцию отправки в тг
 
                 # Отмечаем заказы как обработанные
-                user_orders.update(is_processed=True)
+                user_orders.update(is_processed=True)                                           # заказы помечаются как обработанные
 
-                return JsonResponse({'status': 'success'})
+                return JsonResponse({'status': 'success'})                                       # JSON о успешной обработке
             else:
                 return JsonResponse({'status': 'error', 'message': 'No unprocessed orders found'})
         except Exception as e:
@@ -234,11 +235,13 @@ from django.views.decorators.csrf import csrf_protect
 
 @csrf_protect
 def clear_cart(request):
-    if request.method == 'POST':
+    if request.method == 'POST':                  #проверяем тип HTTP-запроса.
         # Логика удаления заказов из корзины
-        user_orders = Order.objects.filter(user=request.user)
-        user_orders.delete()
+        user_orders = Order.objects.filter(user=request.user)     # Здесь происходит фильтрация заказов, принадлежащих
+                                                                  # текущему пользователю (request.user). Объект Order предполагается
+                                                                   #моделью данных Django, представляющей заказы.
+        user_orders.delete()                                        #удаляем все заказы
 
-        return JsonResponse({'status': 'success'})
+        return JsonResponse({'status': 'success'})                  # удаление прошло успешно, возвращаем JSON-объект с ключом 'status', равным 'success'.
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
