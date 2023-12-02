@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>#}
+     <script src="https://www.google.com/recaptcha/api.js"></script>
         <link rel="stylesheet" href="{% static 'css/css_index.css' %}">
         <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
@@ -27,8 +29,11 @@
       <input type="text" name="username" placeholder="Username">
       <input type="password" name="password" placeholder="Password">
       <button type="submit">Login</button>
+
     </form>
   {% endif %}
 {% endblock %}
+
+
 </body>
 </html>

@@ -49,3 +49,9 @@ class OrderForm(forms.ModelForm):
 
 class AddToCartForm(forms.Form):
     quantity = forms.IntegerField(min_value=1, initial=1, widget=forms.NumberInput(attrs={'class': 'quantity-input'}))
+
+
+from hcaptcha.fields import hCaptchaField
+
+
+

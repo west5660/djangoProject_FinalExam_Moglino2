@@ -19,6 +19,7 @@ from django.urls import path
 from moglino2_site import views
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name='home'),
@@ -42,4 +43,7 @@ urlpatterns = [
     path('process_order/', views.process_order, name='process_order'),
     path('send_telegram_message/', views.send_telegram_message, name='send_telegram_message'),
 
+
 ]
+
+

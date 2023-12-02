@@ -239,9 +239,14 @@ def clear_cart(request):
         # Логика удаления заказов из корзины
         user_orders = Order.objects.filter(user=request.user)     # Здесь происходит фильтрация заказов, принадлежащих
                                                                   # текущему пользователю (request.user). Объект Order предполагается
-                                                                   #моделью данных Django, представляющей заказы.
+                                                                   #моделью данных, представляющей заказы.
         user_orders.delete()                                        #удаляем все заказы
 
         return JsonResponse({'status': 'success'})                  # удаление прошло успешно, возвращаем JSON-объект с ключом 'status', равным 'success'.
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
+# КАПЧА
+
+
+

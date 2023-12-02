@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hcaptcha',
+    'sslserver',
     'moglino2_site',
+
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'djangoProjectMoglino2.urls'
@@ -71,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoProjectMoglino2.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -81,7 +82,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -101,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -112,7 +111,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -125,3 +123,21 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TELEGRAM_BOT_TOKEN = '6148037034:AAGylTPYhWbrZce8J4aCULQF2x7Qns1zv5k'
 TELEGRAM_CHAT_ID = '825113753'
+
+# Используем SSL
+
+# # Настройки для HTTPS
+SECURE_SSL_REDIRECT = False
+
+# # Путь к SSL-ключу
+
+SSL_ENABLED = True
+SECURE_SSL_KEY = '/djangoProjectMoglino2/moglino2_site/certificate/mysite.key'
+SECURE_SSL_CERT = '/djangoProjectMoglino2/moglino2_site/certificate/mysite.crt'
+# капча
+# RECAPTCHA_PUBLIC_KEY = '6LepOyQpAAAAAEWS6fzn0I8j8ubB35t1w96Vhmg3'
+# RECAPTCHA_PRIVATE_KEY = '6LepOyQpAAAAAL0Dyd6oWdJ-JUM4rxkKgT-13JAq'
+# HCAPTCHA = {
+#     'SITE_KEY': '6LepOyQpAAAAAEWS6fzn0I8j8ubB35t1w96Vhmg3',
+#     'SECRET_KEY': '6LepOyQpAAAAAL0Dyd6oWdJ-JUM4rxkKgT-13JAq',
+# }
