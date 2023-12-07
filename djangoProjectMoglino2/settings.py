@@ -135,9 +135,5 @@ SSL_ENABLED = True
 SECURE_SSL_KEY = '/djangoProjectMoglino2/moglino2_site/certificate/mysite.key'
 SECURE_SSL_CERT = '/djangoProjectMoglino2/moglino2_site/certificate/mysite.crt'
 # капча
-# RECAPTCHA_PUBLIC_KEY = '6LepOyQpAAAAAEWS6fzn0I8j8ubB35t1w96Vhmg3'
-# RECAPTCHA_PRIVATE_KEY = '6LepOyQpAAAAAL0Dyd6oWdJ-JUM4rxkKgT-13JAq'
-# HCAPTCHA = {
-#     'SITE_KEY': '6LepOyQpAAAAAEWS6fzn0I8j8ubB35t1w96Vhmg3',
-#     'SECRET_KEY': '6LepOyQpAAAAAL0Dyd6oWdJ-JUM4rxkKgT-13JAq',
-# }
+# RECAPTCHA_PUBLIC_KEY = '6LfFJSopAAAAAHn3IY30xNbb4letiOohus0cUBvo'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LfFJSopAAAAANELNUYWOJYmL2V_Hg9YDS0dnqSZ'

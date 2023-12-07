@@ -51,3 +51,11 @@ button {
         margin-bottom: 10px;
     }
 }
+.messages .success {
+    color: green;
+}
+
+
+.messages .error {
+    color: red;
+}

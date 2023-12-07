@@ -11,6 +11,7 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.db.models import Sum
+from .decorators import check_recaptcha
 from django.conf import settings
 from telegram import Bot
 from telegram import Update
@@ -53,19 +54,22 @@ def register(request):
 
 from django.contrib.auth import login, authenticate
 
-
+@check_recaptcha
 def user_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        if request.recaptcha_is_valid:  # Проверяем, прошла ли капча успешно
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'Successfully logged in.')
-            return redirect('home')  # Измените 'home' на имя вашего URL-маршрута для главной страницы
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Вы прошли проверку.')
+                return redirect('home')  # Измените 'home' на имя вашего URL-маршрута для главной страницы
+            else:
+                messages.error(request, 'Invalid username or password.')
         else:
-            messages.error(request, 'Invalid username or password.')
+            messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
     return render(request, 'registration/login.html')
 

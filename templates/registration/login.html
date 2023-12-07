@@ -20,18 +20,28 @@
     {% block content %}
   {% if user.is_authenticated %}
     <p>Hello, {{ user.username }}!</p>
-    <!-- Добавьте дополнительный контент для авторизованных пользователей по вашему усмотрению -->
-  {% else %}
-    <!-- Ваша текущая форма входа -->
-    <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-      <!-- Ваши поля формы для ввода имени пользователя и пароля -->
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <button type="submit">Login</button>
 
+  {% else %}
+    <!-- форма входа -->
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <!-- поля формы для ввода -->
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+
+        <div class="g-recaptcha" data-sitekey="6LfFJSopAAAAAHn3IY30xNbb4letiOohus0cUBvo"></div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endif %}
+        <button type="submit">Login</button>
     </form>
-  {% endif %}
+
+
 {% endblock %}
 
 
